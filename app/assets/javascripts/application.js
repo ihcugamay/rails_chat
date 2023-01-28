@@ -17,14 +17,20 @@
 //= require semantic-ui
 //= require_tree .
 
+scroll_bottom = function () {
+  const box = $('#messages')
+  if (box.length > 0) {
+    box.scrollTop(box[0].scrollHeight);
+  }
+}
+
 $(document).on('turbolinks:load', function () {
   $('.ui.dropdown').dropdown();
   $('.message .close')
     .on('click', function () {
       $(this)
         .closest('.message')
-        .transition('fade')
-        ;
-    })
-    ;
+        .transition('fade');
+    });
+  scroll_bottom();
 })
